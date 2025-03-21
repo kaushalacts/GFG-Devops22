@@ -39,3 +39,17 @@ volumes:
     sonarqube_data:
     sonarqube_database:
     sonarqube_extensions:
+
+
+
+# ------------------------------------------------------------------------------
+#If in case both the containers not started at a time. Check for 
+#docker-compose logs 
+# if getting error as java.lang.RuntimeException: starting java failed with [1]
+#It might be not enough memory space , then mincrease the available swap space as:
+
+sudo dd if=/dev/zero of=/swapfile bs=1M count=2048  # Create a 2GB swap file
+sudo chmod 600 /swapfile
+sudo mkswap /swapfile
+sudo swapon /swapfile
+
